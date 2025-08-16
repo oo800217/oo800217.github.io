@@ -1,90 +1,277 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tsai Dung Jang 個人網站</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tsai Dung Jang | 蔡東樟</title>
+  <meta name="description" content="Tsai Dung Jang (蔡東樟), Assistant Professor at National Defense Medical Center. AI in healthcare, ECG/CXR, biostatistics, medical imaging, and data science." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>🩺</text></svg>">
+  <meta property="og:title" content="Tsai Dung Jang | 蔡東樟">
+  <meta property="og:description" content="AI × Medicine | ECG/CXR | Biostatistics">
+  <meta property="og:type" content="website">
+  <meta name="color-scheme" content="light dark" />
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header { background: #2c3e50; color: white; padding: 2rem 0; text-align: center; }
-    nav a { color: white; margin: 0 1rem; text-decoration: none; }
-    section { padding: 2rem; max-width: 800px; margin: auto; }
-    h2 { border-bottom: 2px solid #ecf0f1; padding-bottom: 0.5rem; }
-    footer { background: #2c3e50; color: white; text-align: center; padding: 1rem 0; }
-    a[href] { color: #2980b9; }
-    .video-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
-    .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; }
-    .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+    :root {
+      --bg: #0b1220; --bg-soft: #0f172a; --card: #111827; --text: #e5e7eb; --muted: #94a3b8;
+      --brand: #3b82f6; --brand-2: #06b6d4; --ring: rgba(59,130,246,.35); --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f7fafc; --bg-soft:#eef2f7; --card:#fff; --text:#0b1220; --muted:#475569; --ring:rgba(59,130,246,.2); --shadow:0 10px 25px rgba(2,6,23,.08);} }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Helvetica Neue", sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);color:var(--text)}
+    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:color-mix(in oklab,var(--bg) 85%,transparent);border-bottom:1px solid color-mix(in oklab,var(--muted) 30%,transparent)}
+    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .brand{font-weight:700;letter-spacing:.2px}
+    .menu a{color:var(--text);opacity:.9;margin-left:20px;font-weight:600}
+    .menu a:hover{opacity:1}
+    .hero{padding:56px 0 24px;text-align:center}
+    .hero h1{font-size:clamp(28px,3.5vw,44px);margin:0 0 10px}
+    .hero p{color:var(--muted);margin:6px 0}
+    .tags{display:inline-flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .tag{background:linear-gradient(180deg,color-mix(in oklab,var(--card) 75%,var(--bg)) 0%,var(--card) 100%);border:1px solid color-mix(in oklab,var(--muted) 30%,transparent);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--muted)}
+    main{padding-bottom:40px}
+    .card{background:var(--card);border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);border-radius:16px;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
+    .pub-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 16px}
+    .control{display:inline-flex;align-items:center;gap:8px;border:1px solid color-mix(in oklab,var(--muted) 30%,transparent);padding:8px 12px;border-radius:12px;background:color-mix(in oklab,var(--card) 85%,transparent)}
+    .control input,.control select{background:transparent;border:none;outline:none;color:inherit}
+    .chips{display:flex;flex-wrap:wrap;gap:6px}
+    .chip{font-size:11px;border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);padding:4px 8px;border-radius:999px;color:var(--muted)}
+    .pub-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
+    .pub{padding:14px;border-radius:12px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);display:grid;gap:6px}
+    .pub .title{font-weight:600}
+    .pub .meta{font-size:13px;color:var(--muted)}
+    .skeleton{border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.12), rgba(255,255,255,.04));height:64px;animation:shimmer 1.2s infinite;background-size:200% 100%;border:1px solid color-mix(in oklab,var(--muted) 25%,transparent)}
+    @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+    footer{padding:36px 0;color:var(--muted)}
+    .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12px}
   </style>
 </head>
 <body>
   <header>
-    <h1>Tsai Dung Jang (蔡東樟)</h1>
-    <p>Assistant Professor, School of Medicine, National Defense Medical Center</p>
+    <div class="brand">Tsai Dung Jang (蔡東樟)</div>
     <nav>
       <a href="#about">關於我</a>
       <a href="#publications">研究成果</a>
       <a href="#projects">專案</a>
-      <a href="#media">Youtube</a>
-      <a href="#contact">聯絡我</a>
+      <a href="#media">YouTube</a>
+      <a href="#contact">聯絡</a>
     </nav>
   </header>
 
-  <section id="about">
-    <h2>關於我</h2>
-    <p>本實驗室致力於將資料探勘、機器學習、生物資訊等資料科學相關技術，應用於疾病預測、臨床決策支援、個人化醫療等醫療相關議題。本研究室著重生物統計學、醫學影像分析、基因組學等專業領域知識的訓練,目標為使研究室成員能結合理論與實務,發展及應用合適的資料科學技術,為醫療健康領域帶來創新突破。 <p>
-<p>Our laboratory is dedicated to applying data mining, machine learning, bioinformatics and other data science-related techniques to medical issues such as disease prediction, clinical decision support, and personalized medicine. The laboratory emphasizes training in biostatistics, medical image analysis, genomics, and other specialized domains. The goal is to enable lab members to combine theory and practice, developing and applying suitable data science techniques to drive innovative breakthroughs in the medical and healthcare fields. </p>
-    <p>ORCID: <a href="https://orcid.org/0000-0002-5531-0810" target="_blank">0000-0002-5531-0810</a><br>
-       Google Scholar: <a href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ" target="_blank">點此連結</a><br>
-       LinkedIn: <a href="https://tw.linkedin.com/in/dung-jang-tsai" target="_blank">/in/dung-jang-tsai</a>
-    </p>
-  </section>
+  <main>
+    <section id="about" class="card">
+      <h2>關於我</h2>
+      <p>我是國防醫學院醫學系助理教授，研究專長包括資料統計、醫學資訊、人工智慧與機器學習，以及分子生物學。主要研究方向為醫療大數據分析、統計諮詢服務、以及致病基因研究。我曾於三軍總醫院擔任人工智慧暨物聯網發展中心資料科學家，並於輔仁大學統計資訊學系任教。</p>
+      <p>My expertise lies in data statistics, medical informatics, artificial intelligence, machine learning, and molecular biology. My research focuses on big data analysis, statistical consulting, and pathogenic gene research. I have published more than 18 international journal papers in these fields and actively collaborate with clinical teams to apply AI in medical decision support and personalized medicine.</p>
+    </section>
 
-  <section id="publications">
-    <h2>近期論文</h2>
-    <ul>
-      <li>Tsai D.-J., et al. Prediction of Future Risk of Moderate to Severe Kidney Function Loss Using a Deep Learning Model-Enabled Chest Radiography. (April 2025)</li>
-      <li>Liu P.-Y., Hsing S.-C., Tsai D.-J., et al. A Deep-Learning-Enabled Electrocardiogram and Chest X-Ray for Detecting Pulmonary Arterial Hypertension. (Aug 2024)</li>
-      <li>Hung Y., Lin C., Tsai D.-J., et al. Artificial Intelligence-Enabled Electrocardiography Predicts Future Pacemaker Implantation and Adverse Cardiovascular Events. (Jul 2024)</li>
-      <li>Tai D.-J., Lin C., Fang W.-H., et al. Artificial Intelligence‑enabled Chest X‑ray Classifies Osteoporosis and Identifies Mortality Risk. Journal of Medical Systems, 48:12 (Jan 2024)</li>
-    </ul>
-  </section>
-
-  <section id="projects">
-    <h2>進行中專案</h2>
-    <ul>
-      <li>以深度學習技術結合即時資訊系統打造智慧急診室的自動臨床檢查推薦及動態檢傷系統</li>
-      
-    </ul>
-  </section>
-
-  <section id="media">
-    <h2>Youtube</h2>
-    <div class="video-grid">
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/hTR3bbbA7-k" frameborder="0" allowfullscreen></iframe>
+    <section id="publications" class="card">
+      <h2>研究成果 <span class="mono">Publications (Auto)</span></h2>
+      <div class="pub-controls" role="group" aria-label="Filters">
+        <label class="control">🔍 <input id="pub-search" type="search" placeholder="搜尋標題/期刊/DOI…" /></label>
+        <label class="control">📅
+          <select id="pub-year">
+            <option value="">全部年份</option>
+          </select>
+        </label>
+        <label class="control">🔗 <a id="pub-source" href="https://orcid.org/0000-0002-5531-0810" target="_blank" rel="noopener">ORCID</a></label>
+        <span class="mono" id="pub-count"></span>
       </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiUWnWGrv6REZfwX8TrSW0i_" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiWj5xMUjKCwib6KB_oHmvj8" frameborder="0" allowfullscreen></iframe>
-      </div>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiVzRVAbqYpxQvnCpjKJbmo8" frameborder="0" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
+      <div id="pub-chips" class="chips" aria-label="Quick tags"></div>
+      <ul id="pub-list" class="pub-list" aria-live="polite" aria-busy="true">
+        <li class="skeleton"></li>
+        <li class="skeleton"></li>
+        <li class="skeleton"></li>
+      </ul>
+      <p class="mono" style="margin-top:10px">若清單載入失敗，請改用 <a href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ&hl=zh-TW&sortby=pubdate" target="_blank" rel="noopener">Google Scholar（依年份排序）</a>。</p>
+    </section>
 
-  <section id="contact">
-    <h2>聯絡我</h2>
-    <p>Email: oo800217@mail.ndmctsgh.edu.tw<br>
-       Office: No.161, Sec. 6, Minquan E. Rd., Neihu Dist., Taipei City 11490, Taiwan (R.O.C.)<br>
-       </p>
-  </section>
+    <section id="projects" class="card">
+      <h2>進行中專案</h2>
+      <ul>
+        <li><strong>智慧急診室 AI 系統</strong><br>以深度學習技術結合即時資訊系統，建立自動臨床檢查推薦與動態檢傷機制。</li>
+      </ul>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 Tsai Dung Jang. All rights reserved.</p>
+    <section id="media" class="card">
+      <h2>YouTube</h2>
+      <iframe width="100%" height="315" src="https://www.youtube.com/embed/hTR3bbbA7-k" frameborder="0" allowfullscreen></iframe>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>聯絡我</h2>
+      <p>Email: <a href="mailto:oo800217@mail.ndmctsgh.edu.tw">oo800217@mail.ndmctsgh.edu.tw</a></p>
+      <p>Office: No.161, Sec. 6, Minquan E. Rd., Neihu Dist., Taipei City 11490, Taiwan (R.O.C.)</p>
+    </section>
+  </main>
+
+  <footer style="text-align:center; padding: 1rem; color: var(--muted);">
+    © <span id="year"></span> Tsai Dung Jang. All rights reserved.
   </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    async function loadPublications() {
+      try {
+        const response = await fetch('https://scholar.google.com/citations?hl=zh-TW&user=Fv2KDKMAAAAJ&view_op=list_works&sortby=pubdate');
+        const text = await response.text();
+        // 簡易解析 (僅示範: 抓取含有 class="gsc_a_at" 的標題)
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(text, 'text/html');
+        const items = doc.querySelectorAll('.gsc_a_t a.gsc_a_at');
+        let html = '<ul class="pub-list">';
+        items.forEach((el, i) => {
+          if(i < 10) {
+            const title = el.textContent;
+            const link = 'https://scholar.google.com' + el.getAttribute('href');
+            html += `<li class="pub"><div class="title"><a href="${link}" target="_blank">${title}</a></div></li>`;
+          }
+        });
+        html += '</ul>';
+        document.getElementById('pubs').innerHTML = html;
+      } catch (err) {
+        document.getElementById('pubs').textContent = '無法載入，請點擊 Google Scholar 查看。';
+      }
+    }
+
+    loadPublications();
+  </script>
+  <script>
+    // ===== Publications: fetch from ORCID public API and render beautifully =====
+    const ORCID_ID = '0000-0002-5531-0810';
+    const API = `https://pub.orcid.org/v3.0/${ORCID_ID}/works`;
+
+    const state = { works: [], filtered: [], years: [], tags: new Set(), activeTags: new Set() };
+
+    const elList = document.getElementById('pub-list');
+    const elYear = document.getElementById('pub-year');
+    const elSearch = document.getElementById('pub-search');
+    const elCount = document.getElementById('pub-count');
+    const elChips = document.getElementById('pub-chips');
+
+    function by(a,b){ return a>b?1:a<b?-1:0 }
+
+    function extIdsToLink(externalIds){
+      if(!externalIds) return null;
+      let doi = externalIds.find(x=>x['external-id-type']==='doi');
+      if(doi){
+        const v = (doi['external-id-value']||'').replace(/^doi:/i,'');
+        return `https://doi.org/${encodeURIComponent(v)}`;
+      }
+      let pmid = externalIds.find(x=>x['external-id-type']==='pmid');
+      if(pmid){ return `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(pmid['external-id-value'])}`; }
+      return null;
+    }
+
+    function normalizeWork(w){
+      const s = w['work-summary']?.[0] || w; // summary record
+      const title = s.title?.title?.value || '(Untitled)';
+      const journal = s['journal-title']?.value || '';
+      const type = (s['type']||'').replace(/_/g,' ').toLowerCase();
+      const year = s['publication-date']?.year?.value || '';
+      const month = s['publication-date']?.month?.value || '';
+      const day = s['publication-date']?.day?.value || '';
+      const when = [year, month, day].filter(Boolean).join('-');
+      const url = s.url?.value || extIdsToLink(s['external-ids']?.['external-id']);
+      return {title, journal, type, year, when, url};
+    }
+
+    function buildYears(list){
+      const ys = Array.from(new Set(list.map(x=>x.year).filter(Boolean))).sort((a,b)=>b-a);
+      elYear.innerHTML = '<option value="">全部年份</option>' + ys.map(y=>`<option>${y}</option>`).join('');
+      state.years = ys;
+    }
+
+    function buildTags(list){
+      const tagMap = new Map();
+      list.forEach(x=>{ const t = x.type || 'other'; tagMap.set(t,(tagMap.get(t)||0)+1); })
+      elChips.innerHTML = '';
+      [...tagMap.entries()].sort((a,b)=>by(a[0],b[0])).forEach(([t,n])=>{
+        const chip = document.createElement('button');
+        chip.className='chip'; chip.type='button'; chip.textContent = `${t} (${n})`;
+        chip.setAttribute('aria-pressed','false');
+        chip.addEventListener('click',()=>{
+          if(state.activeTags.has(t)) state.activeTags.delete(t); else state.activeTags.add(t);
+          chip.setAttribute('aria-pressed', state.activeTags.has(t));
+          filterRender();
+        });
+        elChips.appendChild(chip);
+      })
+    }
+
+    function render(list){
+      elList.setAttribute('aria-busy','false');
+      elList.innerHTML = '';
+      if(!list.length){
+        elList.innerHTML = `<li class="pub">沒有符合條件的結果。</li>`; elCount.textContent=''; return;
+      }
+      const frag = document.createDocumentFragment();
+      list.forEach(item=>{
+        const li = document.createElement('li'); li.className='pub';
+        const t = document.createElement('div'); t.className='title';
+        t.innerHTML = item.url ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>` : item.title;
+        const m = document.createElement('div'); m.className='meta';
+        m.textContent = [item.journal, item.when, item.type].filter(Boolean).join(' · ');
+        li.appendChild(t); li.appendChild(m); frag.appendChild(li);
+      });
+      elList.appendChild(frag);
+      elCount.textContent = `${list.length} 項`;
+    }
+
+    function filterRender(){
+      const q = (elSearch.value||'').toLowerCase();
+      const y = elYear.value || '';
+      const tagSet = state.activeTags;
+      const out = state.works.filter(w=>{
+        if(y && w.year !== y) return false;
+        if(tagSet.size && !tagSet.has(w.type||'other')) return false;
+        const hay = `${w.title} ${w.journal} ${w.type}`.toLowerCase();
+        return hay.includes(q);
+      });
+      // sort desc by date then alphabetically
+      out.sort((a,b)=> (b.when||'').localeCompare(a.when||'') || a.title.localeCompare(b.title));
+      state.filtered = out; render(out);
+    }
+
+    async function loadWorks(){
+      try{
+        const cacheKey = 'orcid-works-cache-v1';
+        const cacheTSKey = 'orcid-works-cache-ts';
+        const cached = localStorage.getItem(cacheKey);
+        const ts = +localStorage.getItem(cacheTSKey)||0;
+        const FRESH_MS = 1000*60*60*12; // 12h
+        let json;
+        if(cached && (Date.now()-ts) < FRESH_MS){ json = JSON.parse(cached); }
+        else{
+          const res = await fetch(API, { headers: { 'Accept': 'application/json' } });
+          if(!res.ok) throw new Error('ORCID API error');
+          json = await res.json();
+          localStorage.setItem(cacheKey, JSON.stringify(json));
+          localStorage.setItem(cacheTSKey, String(Date.now()));
+        }
+        const group = json?.group || [];
+        const works = group.map(normalizeWork).filter(Boolean);
+        state.works = works;
+        buildYears(works);
+        buildTags(works);
+        filterRender();
+      }catch(err){
+        console.warn(err);
+        elList.setAttribute('aria-busy','false');
+        elList.innerHTML = `<li class='pub'>自動載入失敗，請改用 Google Scholar 連結瀏覽。</li>`;
+        elCount.textContent='';
+      }
+    }
+
+    elYear?.addEventListener('change', filterRender);
+    elSearch?.addEventListener('input', filterRender);
+    loadWorks();
+  </script>
 </body>
+</html>
 </html>
