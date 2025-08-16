@@ -4,274 +4,278 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Tsai Dung Jang | 蔡東樟</title>
-  <meta name="description" content="Tsai Dung Jang (蔡東樟), Assistant Professor at National Defense Medical Center. AI in healthcare, ECG/CXR, biostatistics, medical imaging, and data science." />
+  <meta name="description" content="AI × Medicine · ECG/CXR · Biostatistics · Clinical AI" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='80'>🩺</text></svg>">
-  <meta property="og:title" content="Tsai Dung Jang | 蔡東樟">
-  <meta property="og:description" content="AI × Medicine | ECG/CXR | Biostatistics">
-  <meta property="og:type" content="website">
   <meta name="color-scheme" content="light dark" />
   <style>
-    :root {
-      --bg: #0b1220; --bg-soft: #0f172a; --card: #111827; --text: #e5e7eb; --muted: #94a3b8;
-      --brand: #3b82f6; --brand-2: #06b6d4; --ring: rgba(59,130,246,.35); --shadow: 0 10px 25px rgba(0,0,0,.35);
+    :root{
+      --bg:#0b1020; --bg2:#0f172a; --card:#0f1222; --card2:#111827; --text:#e6eaf2; --muted:#9aa6b2;
+      --brand:#60a5fa; --accent:#22d3ee; --ring:rgba(96,165,250,.35); --stroke:rgba(148,163,184,.25);
+      --shadow:0 12px 30px rgba(2,6,23,.35);
     }
-    @media (prefers-color-scheme: light){ :root{ --bg:#f7fafc; --bg-soft:#eef2f7; --card:#fff; --text:#0b1220; --muted:#475569; --ring:rgba(59,130,246,.2); --shadow:0 10px 25px rgba(2,6,23,.08);} }
+    @media (prefers-color-scheme: light){:root{--bg:#f6f8fc;--bg2:#eef2f7;--card:#ffffff;--card2:#ffffff;--text:#0b1220;--muted:#4b5563;--ring:rgba(37,99,235,.15);--stroke:rgba(15,23,42,.08);--shadow:0 10px 24px rgba(2,6,23,.08)}}
     *{box-sizing:border-box}
-    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, "Helvetica Neue", sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-soft) 100%);color:var(--text)}
-    a{color:var(--brand);text-decoration:none} a:hover{text-decoration:underline}
-    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:color-mix(in oklab,var(--bg) 85%,transparent);border-bottom:1px solid color-mix(in oklab,var(--muted) 30%,transparent)}
-    .container{max-width:1080px;margin:0 auto;padding:0 20px}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%);color:var(--text)}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1152px;margin:0 auto;padding:0 20px}
+
+    /* NAV */
+    header{position:sticky;top:0;z-index:50;backdrop-filter:saturate(180%) blur(10px);background:color-mix(in oklab,var(--bg2) 70%, transparent);border-bottom:1px solid var(--stroke)}
     .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
-    .brand{font-weight:700;letter-spacing:.2px}
-    .menu a{color:var(--text);opacity:.9;margin-left:20px;font-weight:600}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .menu{display:flex;gap:18px}
+    .menu a{color:inherit;opacity:.9;font-weight:600}
     .menu a:hover{opacity:1}
-    .hero{padding:56px 0 24px;text-align:center}
-    .hero h1{font-size:clamp(28px,3.5vw,44px);margin:0 0 10px}
-    .hero p{color:var(--muted);margin:6px 0}
-    .tags{display:inline-flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-    .tag{background:linear-gradient(180deg,color-mix(in oklab,var(--card) 75%,var(--bg)) 0%,var(--card) 100%);border:1px solid color-mix(in oklab,var(--muted) 30%,transparent);border-radius:999px;padding:6px 12px;font-size:12px;color:var(--muted)}
-    main{padding-bottom:40px}
-    .card{background:var(--card);border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);border-radius:16px;padding:22px;margin:16px 0;box-shadow:var(--shadow)}
-    .pub-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:10px 0 16px}
-    .control{display:inline-flex;align-items:center;gap:8px;border:1px solid color-mix(in oklab,var(--muted) 30%,transparent);padding:8px 12px;border-radius:12px;background:color-mix(in oklab,var(--card) 85%,transparent)}
+
+    /* HERO */
+    .hero{padding:72px 0 40px;text-align:center}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;padding:6px 10px;border:1px solid var(--stroke);border-radius:999px;color:var(--muted);font-size:12px}
+    .hero h1{font-size:clamp(28px,4.5vw,48px);margin:16px 0 8px}
+    .hero p{color:var(--muted);margin:0}
+    .badges{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+    .badge{border:1px solid var(--stroke);background:linear-gradient(180deg,color-mix(in oklab,var(--card2) 80%,transparent),var(--card));padding:8px 12px;border-radius:999px;font-size:12px;color:var(--muted)}
+    .cta{display:flex;gap:10px;justify-content:center;margin-top:16px}
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid color-mix(in oklab,var(--brand) 45%, transparent);padding:10px 14px;border-radius:14px;font-weight:700}
+    .btn:hover{box-shadow:0 0 0 4px var(--ring);text-decoration:none}
+    .btn.ghost{border-color:var(--stroke)}
+
+    /* SECTIONS */
+    main{padding-bottom:48px}
+    section{margin:18px 0}
+    .card{background:linear-gradient(180deg,color-mix(in oklab,var(--card2) 92%,transparent),var(--card));border:1px solid var(--stroke);border-radius:18px;box-shadow:var(--shadow);padding:24px}
+    h2{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:clamp(18px,2.2vw,24px)}
+    .grid{display:grid;gap:18px;grid-template-columns:repeat(12,1fr)}
+    .col-8{grid-column:span 8}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .col-12{grid-column:1 / -1}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}.col-8,.col-4,.col-6{grid-column:1 / -1}}
+
+    /* ABOUT */
+    .fact{display:grid;grid-template-columns:120px 1fr;gap:8px;margin:10px 0}
+    .fact .k{color:var(--muted)}
+    .list{margin:8px 0 0 0;padding:0 0 0 18px}
+    .chipline{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .chip{font-size:12px;border:1px solid var(--stroke);padding:4px 10px;border-radius:999px;color:var(--muted)}
+    .stack{display:flex;flex-direction:column;gap:6px}
+    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:2px solid var(--stroke);box-shadow:var(--shadow)}
+
+    /* PUBS */
+    .pub-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:6px 0 14px}
+    .control{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--stroke);padding:8px 12px;border-radius:12px;background:color-mix(in oklab,var(--card2) 88%, transparent)}
     .control input,.control select{background:transparent;border:none;outline:none;color:inherit}
     .chips{display:flex;flex-wrap:wrap;gap:6px}
-    .chip{font-size:11px;border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);padding:4px 8px;border-radius:999px;color:var(--muted)}
-    .pub-list{display:grid;gap:12px;margin:0;padding:0;list-style:none}
-    .pub{padding:14px;border-radius:12px;background:color-mix(in oklab,var(--card) 85%,transparent);border:1px solid color-mix(in oklab,var(--muted) 25%,transparent);display:grid;gap:6px}
+    .chip.sm{font-size:11px}
+    .pub-list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+    .pub{padding:14px;border-radius:12px;background:color-mix(in oklab,var(--card2) 85%,transparent);border:1px solid var(--stroke);display:grid;gap:6px}
     .pub .title{font-weight:600}
     .pub .meta{font-size:13px;color:var(--muted)}
-    .skeleton{border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.12), rgba(255,255,255,.04));height:64px;animation:shimmer 1.2s infinite;background-size:200% 100%;border:1px solid color-mix(in oklab,var(--muted) 25%,transparent)}
+    .skeleton{border-radius:12px;background:linear-gradient(90deg, rgba(255,255,255,.04), rgba(255,255,255,.12), rgba(255,255,255,.04));height:64px;animation:shimmer 1.2s infinite;background-size:200% 100%;border:1px solid var(--stroke)}
     @keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+    /* MEDIA */
+    .video-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .video{grid-column:span 12;border-radius:12px;overflow:hidden;border:1px solid var(--stroke);background:#000}
+    .video .wrap{position:relative;padding-bottom:56.25%;height:0}
+    .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+    @media (min-width:720px){.video{grid-column:span 6}} /* 2×2 on wider screens */ /* 4分格 on desktop */
+
     footer{padding:36px 0;color:var(--muted)}
     .mono{font-family:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;font-size:12px}
   </style>
 </head>
 <body>
   <header>
-    <div class="brand">Tsai Dung Jang (蔡東樟)</div>
-    <nav>
-      <a href="#about">關於我</a>
-      <a href="#publications">研究成果</a>
-      <a href="#projects">專案</a>
-      <a href="#media">YouTube</a>
-      <a href="#contact">聯絡</a>
-    </nav>
+    <div class="container nav">
+      <div class="brand">Tsai Dung Jang <span class="mono">(蔡東樟)</span></div>
+      <nav class="menu" aria-label="Primary">
+        <a href="#about">關於我</a>
+        <a href="#publications">研究成果</a>
+        <a href="#projects">專案</a>
+        <a href="#media">YouTube</a>
+        <a href="#contact">聯絡</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section id="about" class="card">
-      <h2>關於我</h2>
-      <p>我是國防醫學院醫學系助理教授，研究專長包括資料統計、醫學資訊、人工智慧與機器學習，以及分子生物學。主要研究方向為醫療大數據分析、統計諮詢服務、以及致病基因研究。我曾於三軍總醫院擔任人工智慧暨物聯網發展中心資料科學家，並於輔仁大學統計資訊學系任教。</p>
-      <p>My expertise lies in data statistics, medical informatics, artificial intelligence, machine learning, and molecular biology. My research focuses on big data analysis, statistical consulting, and pathogenic gene research. I have published more than 18 international journal papers in these fields and actively collaborate with clinical teams to apply AI in medical decision support and personalized medicine.</p>
-    </section>
+  <section class="hero container">
+    <img class="avatar" src="東樟.jpg" alt="Tsai Dung Jang portrait" loading="eager" />
+    <span class="eyebrow">AI × Medicine • ECG/CXR • Biostatistics</span>
+    <h1>Assistant Professor, School of Medicine, National Defense Medical Center</h1>
+    <p>臨床 AI／醫療影像／因果推論與決策支援</p>
+    <div class="badges">
+      <span class="badge">AI‑ECG</span>
+      <span class="badge">Chest Radiography</span>
+      <span class="badge">Causal Inference</span>
+      <span class="badge">Clinical Decision Support</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#contact">Email</a>
+      <a class="btn ghost" href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ&hl=zh-TW&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>
+      <a class="btn ghost" href="https://orcid.org/0000-0002-5531-0810" target="_blank" rel="noopener">ORCID</a>
+      <a class="btn ghost" href="cv.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+    </div>
+  </section>
 
-    <section id="publications" class="card">
-      <h2>研究成果 <span class="mono">Publications (Auto)</span></h2>
-      <div class="pub-controls" role="group" aria-label="Filters">
-        <label class="control">🔍 <input id="pub-search" type="search" placeholder="搜尋標題/期刊/DOI…" /></label>
-        <label class="control">📅
-          <select id="pub-year">
-            <option value="">全部年份</option>
-          </select>
-        </label>
-        <label class="control">🔗 <a id="pub-source" href="https://orcid.org/0000-0002-5531-0810" target="_blank" rel="noopener">ORCID</a></label>
-        <span class="mono" id="pub-count"></span>
-      </div>
-      <div id="pub-chips" class="chips" aria-label="Quick tags"></div>
-      <ul id="pub-list" class="pub-list" aria-live="polite" aria-busy="true">
-        <li class="skeleton"></li>
-        <li class="skeleton"></li>
-        <li class="skeleton"></li>
-      </ul>
-      <p class="mono" style="margin-top:10px">若清單載入失敗，請改用 <a href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ&hl=zh-TW&sortby=pubdate" target="_blank" rel="noopener">Google Scholar（依年份排序）</a>。</p>
-    </section>
+  <main class="container">
+    <div class="grid">
+      <!-- ABOUT -->
+      <section id="about" class="card col-8">
+        <h2>關於我 <span class="mono">About</span></h2>
+        <div class="fact"><div class="k">現職</div><div>助理教授，國防醫學院 醫學系（2024/08–至今）</div></div>
+        <div class="fact"><div class="k">經歷</div><div class="stack">
+          <div>2023/02–2024/07 輔仁大學 統計資訊學系 助理教授</div>
+          <div>2021/06–2023/01 三軍總醫院 人工智慧與物聯網發展中心 資料科學家</div>
+        </div></div>
+        <div class="fact"><div class="k">學歷</div><div class="stack">
+          <div>生命科學博士（國防醫學院，2017–2021）</div>
+          <div>公共衛生碩士（國防醫學院，2015–2017）</div>
+          <div>公共衛生學士（輔仁大學，2011–2014）</div>
+        </div></div>
+        <div class="fact"><div class="k">授課</div><div>
+          醫學大數據、資料探索與資訊視覺化、藥物臨床統計分析與實作（2023–迄今）。
+        </div></div>
+        <div class="fact"><div class="k">研究主題</div><div>
+          醫療大數據分析、臨床 AI（AI‑ECG／AI‑CXR）、個人化醫療與決策支援、致病基因與生醫資訊。
+        </div></div>
+        <div class="fact"><div class="k">技術</div><div class="chipline">
+          <span class="chip">R / Python</span><span class="chip">XGBoost / DL</span><span class="chip">SHAP / 因果推論</span><span class="chip">MIMIC / UK Biobank</span>
+        </div></div>
+        <p style="margin-top:10px">我的研究專長涵蓋資料統計、醫學資訊、人工智慧與機器學習及分子生物學；近年聚焦以 ECG 與胸部 X 光建立臨床決策模型、預測死亡與重大心腎事件，並與臨床單位合作導入至實務流程，促進早期風險辨識與個人化照護。</p>
+      </section>
 
-    <section id="projects" class="card">
-      <h2>進行中專案</h2>
-      <ul>
-        <li><strong>智慧急診室 AI 系統</strong><br>以深度學習技術結合即時資訊系統，建立自動臨床檢查推薦與動態檢傷機制。</li>
-      </ul>
-    </section>
+      <aside class="card col-4">
+        <h2>快速連結 <span class="mono">Links</span></h2>
+        <ul class="list">
+          <li><a href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ&hl=zh-TW&sortby=pubdate" target="_blank" rel="noopener">Google Scholar（依年份）</a></li>
+          <li><a href="https://orcid.org/0000-0002-5531-0810" target="_blank" rel="noopener">ORCID</a></li>
+          <li><a href="https://tw.linkedin.com/in/dung-jang-tsai" target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+        <div class="chipline" style="margin-top:10px">
+          <span class="chip sm mono">Last updated: <span id="last"></span></span>
+        </div>
+      </aside>
 
-    <section id="media" class="card">
-      <h2>YouTube</h2>
-      <iframe width="100%" height="315" src="https://www.youtube.com/embed/hTR3bbbA7-k" frameborder="0" allowfullscreen></iframe>
-    </section>
+      <!-- PUBS -->
+      <section id="publications" class="card col-12">
+        <h2>研究成果 <span class="mono">Publications (Auto)</span></h2>
+        <div class="pub-controls" role="group" aria-label="Filters">
+          <label class="control">🔍 <input id="pub-search" type="search" placeholder="搜尋標題/期刊/DOI…" /></label>
+          <label class="control">📅<select id="pub-year"><option value="">全部年份</option></select></label>
+          <span class="mono" id="pub-count"></span>
+        </div>
+        <div id="pub-chips" class="chips" aria-label="types"></div>
+        <ul id="pub-list" class="pub-list" aria-live="polite" aria-busy="true">
+          <li class="skeleton"></li><li class="skeleton"></li><li class="skeleton"></li>
+        </ul>
+        <p class="mono" style="margin-top:8px">若清單載入失敗，請改用 <a href="https://scholar.google.com.tw/citations?user=Fv2KDKMAAAAJ&hl=zh-TW&sortby=pubdate" target="_blank" rel="noopener">Google Scholar</a>。</p>
+      </section>
 
-    <section id="contact" class="card">
-      <h2>聯絡我</h2>
-      <p>Email: <a href="mailto:oo800217@mail.ndmctsgh.edu.tw">oo800217@mail.ndmctsgh.edu.tw</a></p>
-      <p>Office: No.161, Sec. 6, Minquan E. Rd., Neihu Dist., Taipei City 11490, Taiwan (R.O.C.)</p>
-    </section>
+      <!-- PROJECTS -->
+      <section id="projects" class="card col-12">
+        <h2>進行中專案 <span class="mono">Projects</span></h2>
+        <ul class="list">
+          <li><strong>智慧急診室 AI 系統：</strong>以深度學習結合即時資訊系統，建立自動臨床檢查推薦與動態檢傷機制。</li>
+        </ul>
+      </section>
+
+      <!-- MEDIA 4-grid -->
+      <section id="media" class="card col-12">
+        <h2>YouTube</h2>
+        <div class="video-grid">
+          <div class="video"><div class="wrap"><iframe src="https://www.youtube.com/embed/hTR3bbbA7-k" title="Talk"></iframe></div></div>
+          <div class="video"><div class="wrap"><iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiUWnWGrv6REZfwX8TrSW0i_" title="Playlist 1"></iframe></div></div>
+          <div class="video"><div class="wrap"><iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiWj5xMUjKCwib6KB_oHmvj8" title="Playlist 2"></iframe></div></div>
+          <div class="video"><div class="wrap"><iframe src="https://www.youtube.com/embed/videoseries?list=PLN1z5t_iIGiVzRVAbqYpxQvnCpjKJbmo8" title="Playlist 3"></iframe></div></div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="card col-12">
+        <h2>聯絡我 <span class="mono">Contact</span></h2>
+        <p>Email：<a href="mailto:oo800217@mail.ndmctsgh.edu.tw">oo800217@mail.ndmctsgh.edu.tw</a></p>
+        <p>Office：No.161, Sec. 6, Minquan E. Rd., Neihu Dist., Taipei City 11490, Taiwan (R.O.C.)</p>
+      </section>
+    </div>
   </main>
 
-  <footer style="text-align:center; padding: 1rem; color: var(--muted);">
-    © <span id="year"></span> Tsai Dung Jang. All rights reserved.
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>© <span id="year"></span> Tsai Dung Jang. All rights reserved.</div>
+        <div class="mono">Built for GitHub Pages</div>
+      </div>
+    </div>
   </footer>
 
   <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
+    // Timestamps
+    const d=new Date();
+    document.getElementById('year').textContent=d.getFullYear();
+    document.getElementById('last').textContent=d.toISOString().slice(0,10);
 
-    async function loadPublications() {
-      try {
-        const response = await fetch('https://scholar.google.com/citations?hl=zh-TW&user=Fv2KDKMAAAAJ&view_op=list_works&sortby=pubdate');
-        const text = await response.text();
-        // 簡易解析 (僅示範: 抓取含有 class="gsc_a_at" 的標題)
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(text, 'text/html');
-        const items = doc.querySelectorAll('.gsc_a_t a.gsc_a_at');
-        let html = '<ul class="pub-list">';
-        items.forEach((el, i) => {
-          if(i < 10) {
-            const title = el.textContent;
-            const link = 'https://scholar.google.com' + el.getAttribute('href');
-            html += `<li class="pub"><div class="title"><a href="${link}" target="_blank">${title}</a></div></li>`;
-          }
-        });
-        html += '</ul>';
-        document.getElementById('pubs').innerHTML = html;
-      } catch (err) {
-        document.getElementById('pubs').textContent = '無法載入，請點擊 Google Scholar 查看。';
-      }
-    }
-
-    loadPublications();
-  </script>
-  <script>
-    // ===== Publications: fetch from ORCID public API and render beautifully =====
-    const ORCID_ID = '0000-0002-5531-0810';
-    const API = `https://pub.orcid.org/v3.0/${ORCID_ID}/works`;
-
-    const state = { works: [], filtered: [], years: [], tags: new Set(), activeTags: new Set() };
-
-    const elList = document.getElementById('pub-list');
-    const elYear = document.getElementById('pub-year');
-    const elSearch = document.getElementById('pub-search');
-    const elCount = document.getElementById('pub-count');
-    const elChips = document.getElementById('pub-chips');
-
-    function by(a,b){ return a>b?1:a<b?-1:0 }
+    // ===== Publications: ORCID API =====
+    const ORCID_ID='0000-0002-5531-0810';
+    const API=`https://pub.orcid.org/v3.0/${ORCID_ID}/works`;
+    const state={works:[],filtered:[],years:[],activeTags:new Set()};
+    const elList=document.getElementById('pub-list');
+    const elYear=document.getElementById('pub-year');
+    const elSearch=document.getElementById('pub-search');
+    const elCount=document.getElementById('pub-count');
+    const elChips=document.getElementById('pub-chips');
+    const by=(a,b)=>a>b?1:a<b?-1:0;
 
     function extIdsToLink(externalIds){
-      if(!externalIds) return null;
-      let doi = externalIds.find(x=>x['external-id-type']==='doi');
-      if(doi){
-        const v = (doi['external-id-value']||'').replace(/^doi:/i,'');
-        return `https://doi.org/${encodeURIComponent(v)}`;
-      }
-      let pmid = externalIds.find(x=>x['external-id-type']==='pmid');
-      if(pmid){ return `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(pmid['external-id-value'])}`; }
+      if(!externalIds) return null; const doi=externalIds.find(x=>x['external-id-type']==='doi');
+      if(doi){const v=(doi['external-id-value']||'').replace(/^doi:/i,'');return `https://doi.org/${encodeURIComponent(v)}`}
+      const pmid=externalIds.find(x=>x['external-id-type']==='pmid'); if(pmid){return `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(pmid['external-id-value'])}`}
       return null;
     }
-
     function normalizeWork(w){
-      const s = w['work-summary']?.[0] || w; // summary record
-      const title = s.title?.title?.value || '(Untitled)';
-      const journal = s['journal-title']?.value || '';
-      const type = (s['type']||'').replace(/_/g,' ').toLowerCase();
-      const year = s['publication-date']?.year?.value || '';
-      const month = s['publication-date']?.month?.value || '';
-      const day = s['publication-date']?.day?.value || '';
-      const when = [year, month, day].filter(Boolean).join('-');
-      const url = s.url?.value || extIdsToLink(s['external-ids']?.['external-id']);
-      return {title, journal, type, year, when, url};
+      const s=w['work-summary']?.[0]||w; const title=s.title?.title?.value||'(Untitled)';
+      const journal=s['journal-title']?.value||''; const type=(s['type']||'').replace(/_/g,' ').toLowerCase();
+      const y=s['publication-date']?.year?.value||''; const m=s['publication-date']?.month?.value||''; const day=s['publication-date']?.day?.value||''; const when=[y,m,day].filter(Boolean).join('-');
+      const url=s.url?.value||extIdsToLink(s['external-ids']?.['external-id']);
+      return {title: title.trim(), journal, type, year: y, when, url};
     }
-
     function buildYears(list){
-      const ys = Array.from(new Set(list.map(x=>x.year).filter(Boolean))).sort((a,b)=>b-a);
-      elYear.innerHTML = '<option value="">全部年份</option>' + ys.map(y=>`<option>${y}</option>`).join('');
-      state.years = ys;
+      const ys=[...new Set(list.map(x=>x.year).filter(Boolean))].sort((a,b)=>b-a);
+      elYear.innerHTML='<option value="">全部年份</option>'+ys.map(y=>`<option>${y}</option>`).join('');
     }
-
     function buildTags(list){
-      const tagMap = new Map();
-      list.forEach(x=>{ const t = x.type || 'other'; tagMap.set(t,(tagMap.get(t)||0)+1); })
-      elChips.innerHTML = '';
-      [...tagMap.entries()].sort((a,b)=>by(a[0],b[0])).forEach(([t,n])=>{
-        const chip = document.createElement('button');
-        chip.className='chip'; chip.type='button'; chip.textContent = `${t} (${n})`;
-        chip.setAttribute('aria-pressed','false');
-        chip.addEventListener('click',()=>{
-          if(state.activeTags.has(t)) state.activeTags.delete(t); else state.activeTags.add(t);
-          chip.setAttribute('aria-pressed', state.activeTags.has(t));
-          filterRender();
-        });
-        elChips.appendChild(chip);
+      const map=new Map(); list.forEach(x=>{const t=x.type||'other'; map.set(t,(map.get(t)||0)+1)});
+      elChips.innerHTML=''; [...map.entries()].sort((a,b)=>by(a[0],b[0])).forEach(([t,n])=>{
+        const b=document.createElement('button'); b.className='chip sm'; b.type='button'; b.textContent=`${t} (${n})`; b.setAttribute('aria-pressed','false');
+        b.addEventListener('click',()=>{ state.activeTags.has(t)?state.activeTags.delete(t):state.activeTags.add(t); b.setAttribute('aria-pressed', state.activeTags.has(t)); filterRender(); });
+        elChips.appendChild(b);
       })
     }
-
     function render(list){
-      elList.setAttribute('aria-busy','false');
-      elList.innerHTML = '';
-      if(!list.length){
-        elList.innerHTML = `<li class="pub">沒有符合條件的結果。</li>`; elCount.textContent=''; return;
-      }
-      const frag = document.createDocumentFragment();
-      list.forEach(item=>{
-        const li = document.createElement('li'); li.className='pub';
-        const t = document.createElement('div'); t.className='title';
-        t.innerHTML = item.url ? `<a href="${item.url}" target="_blank" rel="noopener">${item.title}</a>` : item.title;
-        const m = document.createElement('div'); m.className='meta';
-        m.textContent = [item.journal, item.when, item.type].filter(Boolean).join(' · ');
+      elList.setAttribute('aria-busy','false'); elList.innerHTML='';
+      if(!list.length){elList.innerHTML='<li class="pub">沒有符合條件的結果。</li>'; elCount.textContent=''; return}
+      const frag=document.createDocumentFragment();
+      list.forEach(it=>{const li=document.createElement('li'); li.className='pub';
+        const t=document.createElement('div'); t.className='title'; t.innerHTML= it.url?`<a href="${it.url}" target="_blank" rel="noopener">${it.title}</a>`:it.title;
+        const m=document.createElement('div'); m.className='meta'; m.textContent=[it.journal,it.when,it.type].filter(Boolean).join(' · ');
         li.appendChild(t); li.appendChild(m); frag.appendChild(li);
-      });
-      elList.appendChild(frag);
-      elCount.textContent = `${list.length} 項`;
+      }); elList.appendChild(frag); elCount.textContent=`${list.length} 項`;
     }
-
     function filterRender(){
-      const q = (elSearch.value||'').toLowerCase();
-      const y = elYear.value || '';
-      const tagSet = state.activeTags;
-      const out = state.works.filter(w=>{
-        if(y && w.year !== y) return false;
-        if(tagSet.size && !tagSet.has(w.type||'other')) return false;
-        const hay = `${w.title} ${w.journal} ${w.type}`.toLowerCase();
-        return hay.includes(q);
-      });
-      // sort desc by date then alphabetically
-      out.sort((a,b)=> (b.when||'').localeCompare(a.when||'') || a.title.localeCompare(b.title));
-      state.filtered = out; render(out);
+      const q=(elSearch.value||'').toLowerCase(); const y=elYear.value||''; const tags=state.activeTags;
+      const out=state.works.filter(w=>{ if(y && w.year!==y) return false; if(tags.size && !tags.has(w.type||'other')) return false; const hay=`${w.title} ${w.journal} ${w.type}`.toLowerCase(); return hay.includes(q); });
+      out.sort((a,b)=> (b.when||'').localeCompare(a.when||'') || a.title.localeCompare(b.title)); render(out);
     }
-
     async function loadWorks(){
-      try{
-        const cacheKey = 'orcid-works-cache-v1';
-        const cacheTSKey = 'orcid-works-cache-ts';
-        const cached = localStorage.getItem(cacheKey);
-        const ts = +localStorage.getItem(cacheTSKey)||0;
-        const FRESH_MS = 1000*60*60*12; // 12h
-        let json;
-        if(cached && (Date.now()-ts) < FRESH_MS){ json = JSON.parse(cached); }
-        else{
-          const res = await fetch(API, { headers: { 'Accept': 'application/json' } });
-          if(!res.ok) throw new Error('ORCID API error');
-          json = await res.json();
-          localStorage.setItem(cacheKey, JSON.stringify(json));
-          localStorage.setItem(cacheTSKey, String(Date.now()));
-        }
-        const group = json?.group || [];
-        const works = group.map(normalizeWork).filter(Boolean);
-        state.works = works;
-        buildYears(works);
-        buildTags(works);
-        filterRender();
-      }catch(err){
-        console.warn(err);
-        elList.setAttribute('aria-busy','false');
-        elList.innerHTML = `<li class='pub'>自動載入失敗，請改用 Google Scholar 連結瀏覽。</li>`;
-        elCount.textContent='';
-      }
+      try{ const cacheKey='orcid-works-cache-v2', tsKey='orcid-works-cache-ts'; const cached=localStorage.getItem(cacheKey); const ts=+localStorage.getItem(tsKey)||0; const FRESH=1000*60*60*12;
+        let json; if(cached && (Date.now()-ts)<FRESH){ json=JSON.parse(cached); } else { const res=await fetch(API,{headers:{'Accept':'application/json'}}); if(!res.ok) throw new Error('ORCID API error'); json=await res.json(); localStorage.setItem(cacheKey,JSON.stringify(json)); localStorage.setItem(tsKey,String(Date.now())); }
+        const works=(json?.group||[]).map(normalizeWork).filter(Boolean); state.works=works; buildYears(works); buildTags(works); filterRender();
+      }catch(e){ console.warn(e); elList.setAttribute('aria-busy','false'); elList.innerHTML="<li class='pub'>自動載入失敗，請改用 Google Scholar 連結瀏覽。</li>"; elCount.textContent=''; }
     }
-
-    elYear?.addEventListener('change', filterRender);
-    elSearch?.addEventListener('input', filterRender);
-    loadWorks();
+    elYear.addEventListener('change', filterRender); elSearch.addEventListener('input', filterRender); loadWorks();
   </script>
 </body>
-</html>
 </html>
